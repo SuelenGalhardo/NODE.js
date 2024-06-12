@@ -1,0 +1,24 @@
+{
+  "name": "curso-node",
+  "version": "1.0.0",
+  "description": "el mejor curso de Node por 0$",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "curso",
+    "node",
+    "nodejs",
+    "suelen"
+  ],
+  "author": "miguel angel",
+  "license": "ISC",
+  "dependencies": {
+    "picocolors": "^1.0.1"
+  }
+
+
+}
+
+
