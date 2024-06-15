@@ -8,14 +8,17 @@ const processRequest = (req, res) => {
 
   if (req.url === '/') {
     res.end('<h1>Mi página</h1>')
-  } else if (req.url === '/imagen-super-bonita.png') {
+  } else if (req.url === '/imagen-super-bonita.png')
+    // aqui no se utiliza un buffer explicitamente ,  
+    //Sin embargo, el uso de fs.readFile en el manejo de la ruta /imagen-super-bonita.pnginvolucrarBuffer y luego lo envía en la respuesta HTTP.
+   {
     fs.readFile('./placa.png', (err, data) => {
       if (err) {
         res.statusCode = 500
         res.end('<h1>500 Internal Server Error</h1>')
       } else {
         res.setHeader('Content-Type', 'image/png')
-        res.end(data)
+        res.end(data) //aqui data es un buffer
       }
     })
   } else if (req.url === '/contacto') {

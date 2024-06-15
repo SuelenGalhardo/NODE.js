@@ -8,3 +8,14 @@ curso: https://www.youtube.com/playlist?list=PLUofhDIg_38qm2oPOV-IRTTEKyrVBBaU7
 03: Solución de CORS y desarrollo de API
 04: Arquitectura MVC y despligue de API
 05: Crea un Base de Datos MySQL y evita los hackers (buenas prácticas)
+
+
+Status code:
+
+htt.cat:
+https://http.cat/[status_code]
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP
+
+Alternativa a —Watch Nodemon:
+https://www.npmjs.com/package/nodemon
