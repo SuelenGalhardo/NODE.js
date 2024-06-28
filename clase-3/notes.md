@@ -1,3 +1,6 @@
+starg: node --watch  ./app.js
+
+
 package.json :
 
 npm init-y
@@ -85,3 +88,9 @@ Las REST APIs son ampliamente utilizadas en el desarrollo de aplicaciones web y 
 
 Extension : RESTClient
 
+
+biblioeta Crypto nativa denode.js que te permite crear ideas unicas 
+
+//validaciones 
+https://zod.dev/?id=installation
+npm install zod  -E     # npm
