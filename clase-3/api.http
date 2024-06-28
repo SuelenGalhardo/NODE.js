@@ -1,43 +1,35 @@
-### Recuperar todas las peliculas 
+const z = require('zod')
 
-GET http://localhost:1234/movies 
+const movieSchema = z.object({
+  title: z.string({
+    invalid_type_error: 'Movie title must be a string',
+    required_error: 'Movie title is required.'
+  }),
+  year: z.number().int().min(1900).max(2024),
+  director: z.string(),
+  duration: z.number().int().positive(),
+  rate: z.number().min(0).max(10).default(5),
+  poster: z.string().url({
+    message: 'Poster must be a valid URL'
+  }),
+  genre: z.array(
+    z.enum(['Action', 'Adventure', 'Crime', 'Comedy', 'Drama', 'Fantasy', 'Horror', 'Thriller', 'Sci-Fi']),
+    {
+      required_error: 'Movie genre is required.',
+      invalid_type_error: 'Movie genre must be an array of enum Genre'
+    }
+  )
+})
 
-
-
-### Recuperar una pelicula por su id
-
-GET http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
-
-
-
-### Recuperar una pelicula por género
-
-GET http://localhost:1234/movies?genre=Drama
-
-
-// ? es un cor parametro
-
-### Crear una pelicula con Post 
-
-POST http://localhost:1234/movies
-
-Content-Type: application/json
-
-{
- "title": "The Godfather",
-  "year": 1975,
-  "director": "Francis Ford Coppola",
-  "duration": 175,
-  "poster": "https://img.fruugo.com/product/4/49/14441494_max.jpg",
-  "genre": [
-    "Crime",
-    "Drama"
-    ]
+function validateMovie (input) {
+  return movieSchema.safeParse(input)
 }
 
-   
-  
+function validatePartialMovie (input) {
+  return movieSchema.partial().safeParse(input)
+}
 
-### Actualizar una pelicula
-
-
+module.exports = {
+  validateMovie,
+  validatePartialMovie
+}

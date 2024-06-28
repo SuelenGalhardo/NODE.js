@@ -94,3 +94,44 @@ biblioeta Crypto nativa denode.js que te permite crear ideas unicas
 //validaciones 
 https://zod.dev/?id=installation
 npm install zod  -E     # npm
+
+
+
+POST, PUT, PATCH y GET son métodos HTTP que definen diferentes tipos de operaciones que se pueden realizar en los recursos de un servidor. A continuación, te explico cada uno de estos métodos:
+
+idempotencia: 
+
+
+
+Post: Crear un nuevo elemento/recurso  , esta solicitando crear un nuevo elemento/recurso
+ /movies
+ NO es idempotente , no porque creas siempre creas simpre un nuevo recurso 
+
+Put: actualizar totalmente un elemento ya exisstente o Crearlo si no existe.  
+ /movies/123-456-789  aquí le pasariamos el ID
+
+ el PUT si que es idempotente, el resultado sempre será el mismo. 
+
+Patch: Actualizar parcialmente un elemento / recurso 
+
+ /movies/123-456-789 
+
+ en PATCH, en principio si que es idempotente,  normalmente si, lo que podria ser, PERO depende . 
+ si tienes un updateAT, cada vez que pasa , este campo se actualiza. 
+
+Resumen de Comparación:
+Método	   Propósito	            Idempotencia	  Seguridad
+GET	       Recuperar información	    Sí	          Sí
+POST	     Crear un nuevo recurso   	 No          	No
+PUT	       Actualizar/Reemplazar	    Sí	            No
+PATCH	     Modificación parcial	      Sí	            No
+
+
+
+servidor para servir archivos estáticos desde el directorio `./web/`
+npm servor ./web/ 
+
+CORS:
+
+npm install cors
+node --watch ./app.js
